@@ -14,6 +14,4 @@ let i=0;const $=id=>document.getElementById(id);function btn(t,f,secondary=false
 if(document.querySelector('#nav button:disabled'))return;
 document.querySelectorAll('#nav button').forEach(b=>b.disabled=true);
 const sent=await send(ok?'accepted':'need_time');
-$('status').textContent=sent?'Đã gửi yêu cầu phản hồi (chưa xác nhận máy chủ nhận).':'Chưa gửi được phản hồi. Thỏ có thể thử lại.';
-if(!sent){document.querySelectorAll('#nav button').forEach(b=>b.disabled=false);return;}
 $('art').textContent=ok?'🫶':'🌷';$('heading').textContent=ok?'Cảm ơn Thỏ nhiều lắm!':'Tớ hiểu mà.';$('message').textContent=ok?'Tớ sẽ trân trọng cơ hội này và cố gắng bằng hành động.':'Thỏ cứ dành thời gian cho mình nhé. Khi Thỏ sẵn sàng, tớ sẽ lắng nghe.';$('nav').replaceChildren();btn('Đọc lại lá thư ↺',()=>{i=0;render()},true);if(ok)for(let j=0;j<25;j++)heart(j,true)}function heart(j,burst=false){let h=document.createElement('span');h.className='heart';h.textContent=['♡','♥','✦'][j%3];h.style.left=Math.random()*100+'vw';h.style.fontSize=12+Math.random()*22+'px';h.style.color='#df7195';h.style.animationDuration=(burst?3:8+Math.random()*9)+'s';h.style.animationDelay=(burst?Math.random():-Math.random()*15)+'s';if(burst){h.style.animationIterationCount=1;h.addEventListener('animationend',()=>h.remove())}document.body.append(h)}for(let j=0;j<16;j++)heart(j);render();</script></html>
